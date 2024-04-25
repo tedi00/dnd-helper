@@ -1,0 +1,25 @@
+@use "component-mixins" as m;
+@use "variables/colors" as c;
+
+@layer component {
+  //a {
+  //  @include m.anchor;
+  //}
+  //button {
+  //  @include m.button($color: red);
+  //}
+  //.card {
+  //  @include m.card;
+  //  color: c.$black;
+  //}
+  .mat-mdc-form-field-subscript-wrapper {
+    display: none !important;
+  }
+  .mat-button-toggle-label-content {
+    line-height: 28px !important;
+  }
+  .mat-button-toggle mat-pseudo-checkbox {
+    display: none !important;
+  }
+
+}

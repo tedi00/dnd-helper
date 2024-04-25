@@ -1,0 +1,30 @@
+$breakpoint-xs: 26.5em;
+$breakpoint-sm: 35.5em;
+$breakpoint-md: 48em;
+$breakpoint-lg: 64em;
+$breakpoint-xl: 80em;
+$breakpoint-xxl: 120em;
+
+$font-family: Roboto, "Helvetica Neue", sans-serif;
+$font-size-base: 16px;
+
+$z-index-list: (
+        'base',
+        'header',
+        'modal',
+        'tooltip',
+);
+
+$button-padding: .5em 1em;
+$button-border-radius: .25rem;
+$button-border: none;
+
+$border-width: 1px;
+$border-style: solid;
+
+$box-shadow-blur: .25rem;
+$box-shadow-x: 0;
+$bow-shadow-y: 0;
+$box-shadow-spread: 0;
+
+$flex-gap: 1rem;

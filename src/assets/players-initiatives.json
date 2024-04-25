@@ -1,0 +1,11 @@
+[
+  {"name": "Errhin", "initiative": 1},
+  {"name": "Maximus", "initiative": 2},
+  {"name": "Lucious", "initiative": 4},
+  {"name": "Maria", "initiative": 2},
+  {"name": "Krilin", "initiative": 3},
+  {"name": "Venule", "initiative": -1},
+  {"name": "Adela", "initiative": 0},
+  {"name": "Sapphire", "initiative": 1},
+  {"name": "Piku", "initiative": 1}
+]

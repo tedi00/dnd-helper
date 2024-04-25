@@ -1,0 +1,24 @@
+<form [formGroup]="form">
+  <div formArrayName="players" class="container-fluid">
+    @for (playerControl of getPlayersFormArray().controls; track playerControl; let i = $index) {
+      <div [formGroupName]="i" class="row align-items-center">
+        <mat-form-field appearance="outline" class="col-12 col-md-6 col-lg-2 d-flex align-items-center mb-3 mb-md-0">
+          <mat-label>Name</mat-label>
+          <input (change)="onFormChange()" matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="col-12 col-md-6 col-lg-2 d-flex align-items-center mb-3 mb-md-0">
+          <mat-label>Initiative</mat-label>
+          <input (change)="onFormChange()" matInput type="number" formControlName="initiative">
+        </mat-form-field>
+        <mat-checkbox class="col-12 col-md-6 col-lg-2 d-flex align-items-center" (change)="onFormChange()" formControlName="advantage">Advantage</mat-checkbox>
+        <mat-checkbox class="col-12 col-md-6 col-lg-2 d-flex align-items-center" (change)="onFormChange()" formControlName="disadvantage">Disadvantage</mat-checkbox>
+        <div class="col-12 col-md-6 col-lg-2">
+          <button class="remove-button" (click)="removePlayer(i)" mat-button mat-raised-button>Remove</button>
+        </div>
+      </div>
+      <hr class="bg-info">
+    }
+
+  </div>
+  <button (click)="addPlayer('')" mat-button mat-raised-button>Add</button>
+</form>

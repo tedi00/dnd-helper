@@ -1,0 +1,59 @@
+@use "variables/colors" as c;
+@use "variables/variables" as v;
+@use "functions" as f;
+
+@mixin max-width($breakpoint) {
+  @media screen and (max-width: calc(#{$breakpoint} - 1px)) {
+    @content;
+  }
+}
+@mixin min-width($breakpoint) {
+  @media screen and (min-width: #{$breakpoint}) {
+    @content
+  }
+}
+
+@mixin margin($t: false, $r: false, $b: false, $l: false, $a: false, $x: false, $y: false, $important: false) {
+  @if($a) {margin: $a f.imp($important);}
+  @if($x) {margin-left: $x f.imp($important); margin-right: $x f.imp($important);}
+  @if($y) {margin-top: $y f.imp($important); margin-bottom: $y f.imp($important);}
+  @if($l) {margin-left: $l f.imp($important);} @if($r) {margin-right: $r f.imp($important);}
+  @if($t) {margin-top: $t f.imp($important);} @if($b) {margin-bottom: $b f.imp($important);}
+}
+@mixin padding($a: false, $x: false, $y: false, $l: false, $r: false, $t: false, $b: false, $important: false) {
+  @if($a) {padding: $a f.imp($important);}
+  @if($x) {padding-left: $x f.imp($important); padding-right: $x f.imp($important);}
+  @if($y) {padding-top: $y f.imp($important); padding-bottom: $y f.imp($important);}
+  @if($l) {padding-left: $l f.imp($important);} @if($r) {padding-right: $r f.imp($important);}
+  @if($t) {padding-top: $t f.imp($important);} @if($b) {padding-bottom: $b f.imp($important);}
+}
+
+@mixin flex($wrap: wrap, $direction: false, $align: false, $justify: false, $gap: false, $important: false) {
+  display: flex f.imp($important);
+  flex-wrap: #{$wrap} f.imp($important);
+  @if($direction) {flex-direction: #{$direction} f.imp($important);}
+  @if($align) {align-items: #{$align} f.imp($important);}
+  @if($justify) {justify-content: #{$justify} f.imp($important);}
+  @if($gap) {gap: #{$gap} f.imp($important);}
+}
+
+@mixin z-index($layer) {
+  z-index: #{index(v.$z-index-list, $layer) + 100};
+}
+
+@mixin border($color: c.$border-gray, $size: v.$border-width, $style: v.$border-style, $important: false) {
+  border: #{$size} #{$style} $color f.imp($important);
+}
+
+@mixin box-shadow($x: v.$box-shadow-x, $y: v.$bow-shadow-y, $blur: v.$box-shadow-blur, $spread: v.$box-shadow-spread, $important: false) {
+  box-shadow: #{$x $y $blur $spread} f.imp($important);
+}
+
+@mixin size($w: false, $h: false, $min-w: false, $min-h: false, $max-w: false, $max-h: false, $important: false) {
+  @if($w) {width: #{$w} f.imp($important);}
+  @if($h) {height: #{$h} f.imp($important);}
+  @if($min-w) {min-width: #{$min-w} f.imp($important);}
+  @if($min-h) {min-height: #{$min-h} f.imp($important);}
+  @if($max-w) {max-width: #{$max-w} f.imp($important);}
+  @if($max-h) {max-height: #{$max-h} f.imp($important);}
+}

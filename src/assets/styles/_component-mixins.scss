@@ -1,0 +1,39 @@
+@use "variables/colors" as c;
+@use "variables/variables" as v;
+@use "functions" as f;
+@use "util-mixins" as m;
+@use 'sass:color';
+
+@mixin button(
+  $color: c.$text-secondary,
+  $background: c.$background-primary,
+  $padding: v.$button-padding,
+  $border: v.$button-border,
+  $border-radius: v.$button-border-radius,
+  $important: false) {
+  cursor: pointer;
+  color: #{$color} f.imp($important);
+  background: #{$background} f.imp($important);
+  padding: #{$padding} f.imp($important);
+  border: #{$border} f.imp($important);
+  border-radius: $border-radius f.imp($important);
+  &:hover {
+    background: color.scale($background, $lightness: -15%);
+  }
+}
+
+@mixin anchor {
+  cursor: pointer;
+  color: c.$anchor;
+  &:hover {
+    color: color.scale(c.$anchor, $lightness: -30%);
+  }
+}
+
+@mixin card {
+    @include m.box-shadow();
+    border-radius: v.$button-border-radius;
+    @include m.margin($y: 1rem);
+    padding: 1rem;
+    @include m.size(300px, false, false, 500px)
+}

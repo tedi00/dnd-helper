@@ -1,0 +1,5 @@
+<button class="mb-3" (click)="rollInitiatives()" mat-button mat-raised-button>Roll initiatives</button>
+
+@for (init of rolledInitiatives; track init) {
+  <p>{{init.name}}: {{init.initiative}}</p>
+}
