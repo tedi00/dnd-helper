@@ -1,8 +1,6 @@
-import {Component, OnInit, signal, ViewChild, WritableSignal} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../../core/services/api.service";
-import {InitiativesService} from "../../../services/initiatives.service";
 import {MatButton} from "@angular/material/button";
-import {DiceService} from "../../../services/dice.service";
 import {PlayerInitiativeModel} from "../../../core/models/player-initiative.model";
 import {PlayerInitiativeListComponent} from "../player-initiative-list/player-initiative-list.component";
 import {PlayerInitiativeService} from "../../../services/player-initiative.service";
@@ -32,7 +30,7 @@ import {InitiativeRollerComponent} from "../initiative-roller/initiative-roller.
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit {
-  expansionPanelStep = 0;
+  expansionPanelStep = -1;
 
   constructor(
     private _api: ApiService,

@@ -43,7 +43,7 @@ export class DiceService {
 
   rollDn(n: number, length = 1) {
     let array = new Uint32Array(length);
-    window.crypto.getRandomValues(array);
+    crypto.getRandomValues(array);
     array = array.map(num => num % n + 1);
     return array;
   }

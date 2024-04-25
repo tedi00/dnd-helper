@@ -1,4 +1,4 @@
-<mat-accordion class="mb-5">
+<mat-accordion>
   <mat-expansion-panel [expanded]="expansionPanelStep === 0" (opened)="setExpansionPanelStep(0)">
     <mat-expansion-panel-header>
       <mat-panel-title>
@@ -7,7 +7,7 @@
     </mat-expansion-panel-header>
     <app-player-initiative-list></app-player-initiative-list>
   </mat-expansion-panel>
-  <mat-expansion-panel class="mb-5" [expanded]="expansionPanelStep === 1" (opened)="setExpansionPanelStep(1)">
+  <mat-expansion-panel class="mb-3" [expanded]="expansionPanelStep === 1" (opened)="setExpansionPanelStep(1)">
     <mat-expansion-panel-header>
       <mat-panel-title>
         Enemy initiatives
