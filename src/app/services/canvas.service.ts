@@ -20,8 +20,8 @@ export class CanvasService {
     return this.canvas?.getContext();
   }
 
-  get elements() {
-    return this.canvas?.getElements();
+  get elements(): any[] {
+    return this.canvas?.getElements() ?? [];
   }
 
 

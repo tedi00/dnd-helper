@@ -1,4 +1,4 @@
-import {CanvasCircleSection} from "../helpers/canvas-circle-section";
+import {CanvasCircleSection} from "./canvas-circle-section";
 
 export function pos(num: number) {
   return num * 25 + 12.5;
@@ -24,7 +24,7 @@ function generatePastelColor(): string {
   return '#' + r.padStart(2, '0') + g.padStart(2, '0') + b.padStart(2, '0');
 }
 
-function genCone(x: number, y: number, r: number, key: number) {
+export function genCone(x: number, y: number, r: number, key: number) {
   return new CanvasCircleSection({
     x: x,
     y: y,
@@ -35,4 +35,16 @@ function genCone(x: number, y: number, r: number, key: number) {
     key: key,
     rotation: 60
   });
+}
+
+export function generateGradient(n: number): string[] {
+  let gradientColors = [];
+  for (let i = 0; i < n; i++) {
+    // Calculate the hue value
+    let hue = (360 * i) / n;
+    // Create the HSL color and push it to the array
+    // Saturation is 100%, lightness is 50%
+    gradientColors.push(`hsl(${hue}, 100%, 50%)`);
+  }
+  return gradientColors;
 }

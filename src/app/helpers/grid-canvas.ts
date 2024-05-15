@@ -106,6 +106,15 @@ export class GridCanvas {
   }
 
   #drawElements() {
+    this.elements.sort((a, b) => {
+      if (a.circle && !b.circle) return -1;
+      if (!a.circle && b.circle) return 1;
+      if (a.rect && !b.rect) return -1;
+      if (!a.rect && b.rect) return 1;
+      if (a.circleSection && !b.circleSection) return -1;
+      if (!a.circleSection && b.circleSection) return 1;
+      return 0;
+    });
     for (let i = this.elements.length - 1; i >= 0; i--) {
       if (typeof this.elements[i]['draw'] === 'function') {
         this.elements[i]['draw'](this.ctx);
