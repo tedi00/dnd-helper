@@ -21,8 +21,8 @@ import {InitiativesService} from "../../../services/initiatives.service";
 export class InitiativeRollerComponent implements OnInit {
   players!: PlayerInitiativeModel[];
   enemies!: EnemyInitiativeModel[];
-  fullList: {name: string, initiative: number}[] = [];
-  rolledInitiatives: {name: string, initiative: number}[] = []
+  fullList: {name: string, initiative: number, hp: number}[] = [];
+  rolledInitiatives: {name: string, initiative: number, hp?: number, advantage?: boolean, disadvantage?: boolean}[] = []
   constructor(
     private playerIService: PlayerInitiativeService,
     private enemyIService: EnemyInitiativeService,
@@ -41,16 +41,19 @@ export class InitiativeRollerComponent implements OnInit {
       this.players = p;
       this.enemies = e;
       this.fullList = [
-        ...p.map(x => {return {name: x.name, initiative: x.initiative}}),
-        ...e.map(x => {return {name: x.name, initiative: x.initiative}})
+        ...p.map(x => {return {name: x.name, initiative: x.initiative, hp: x.hp ?? -1}}),
+        ...e.map(x => {return {name: x.name, initiative: x.initiative, hp: -1}})
       ];
     })
   }
 
   rollInitiatives() {
-    let initiativeList = this.fullList.map(item => ({
+    let initiativeList: PlayerInitiativeModel[] = this.fullList.map(item => ({
       name: item.name,
-      initiative: this.initService.getInitiative(item)
+      initiative: this.initService.getInitiative(item),
+      hp: item.hp ?? -1,
+      advantage: false,
+      disadvantage: false
     }));
     initiativeList = this.initService.sortByInitiative(initiativeList);
     this.rolledInitiatives = initiativeList;

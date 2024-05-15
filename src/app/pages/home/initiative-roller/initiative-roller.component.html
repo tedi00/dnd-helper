@@ -1,5 +1,10 @@
 <button class="mb-3 me-3" (click)="rollInitiatives()" mat-button mat-raised-button>Roll initiatives</button>
 <button class="mb-3" (click)="rolledInitiatives = []" mat-button mat-raised-button>Clear initiatives</button>
 @for (init of rolledInitiatives; track init) {
-  <p>{{init.name}}: {{init.initiative}}</p>
+  <p>
+    @if(init["hp"] && init["hp"] >= 0) {
+      [{{init["hp"]}}]
+    }
+    {{init.name}}: {{init["initiative"]}}
+  </p>
 }

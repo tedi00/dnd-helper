@@ -1,11 +1,8 @@
 [
-  {"name": "Errhin", "initiative": 1},
-  {"name": "Maximus", "initiative": 2},
-  {"name": "Lucious", "initiative": 4},
-  {"name": "Maria", "initiative": 2},
-  {"name": "Krilin", "initiative": 3},
-  {"name": "Venule", "initiative": -1},
-  {"name": "Adela", "initiative": 0},
-  {"name": "Sapphire", "initiative": 1},
-  {"name": "Piku", "initiative": 1}
+  {"name": "Errhin", "initiative": 1, "hp": 16},
+  {"name": "Maximus", "initiative": 2, "hp": 29},
+  {"name": "Lucious", "initiative": 4, "hp": 24},
+  {"name": "Maria", "initiative": 2, "hp": 27},
+  {"name": "Krilin", "initiative": 3, "hp": 24},
+  {"name": "Venule", "initiative": -1, "hp": 22}
 ]
