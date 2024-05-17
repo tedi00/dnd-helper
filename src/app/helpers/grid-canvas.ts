@@ -90,6 +90,10 @@ export class GridCanvas {
     this.ctx.clearRect(0, 0, this.gridSize.width, this.gridSize.height);
   }
 
+  setClickFn(f: Function) {
+    this.clickFn = f;
+  }
+
   #drawGrid() {
     this.ctx.lineWidth = 1;
     for (let x = 0; x <= this.gridSize.width; x += this.gridSpacing) {
@@ -150,6 +154,22 @@ export class GridCanvas {
         this.focused.state = true;
         break;
       }
+    }
+  }
+
+  deleteElement(e: MouseEvent) {
+    if (!this.isMouseDown) {
+      return;
+    }
+    this.#getMousePosition(e);
+    //if any circle is focused
+    if (this.focused.state) {
+      const focusedElement = this.elements.findIndex(el => el['key'] === this.focused.key);
+      if(focusedElement >= 0) {
+        this.elements.splice(focusedElement, 1);
+      }
+      this.redrawCanvas();
+      return;
     }
   }
 

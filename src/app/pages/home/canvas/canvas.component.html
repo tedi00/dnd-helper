@@ -1,3 +1,37 @@
 <div class="canvas-container">
+  <div class="mb-3 d-flex gap-2 align-items-center" [formGroup]="reactiveForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Shape</mat-label>
+      <mat-select formControlName="type">
+        <mat-option value=""></mat-option>
+        <mat-option value="circle">Circle</mat-option>
+        <mat-option value="circleSection">Circle Section</mat-option>
+        <mat-option value="rectangle">Rectangle</mat-option>
+      </mat-select>
+    </mat-form-field>
+    @if(reactiveForm.controls['type'].value === 'rectangle') {
+      <mat-form-field appearance="outline">
+        <mat-label>Width</mat-label>
+        <input formControlName="width" type="number" matInput placeholder="1" value="1">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Height</mat-label>
+        <input formControlName="height" type="number" matInput placeholder="1" value="1">
+      </mat-form-field>
+    }
+    @if(reactiveForm.controls['type'].value === 'circle') {
+      <mat-form-field appearance="outline">
+        <mat-label>Radius</mat-label>
+        <input formControlName="radius" type="number" matInput placeholder="1" value="1">
+      </mat-form-field>
+    }
+    @if(reactiveForm.controls['type'].value === 'circleSection') {
+      <mat-form-field appearance="outline">
+        <mat-label>Size</mat-label>
+        <input formControlName="size" type="number" matInput placeholder="1" value="1">
+      </mat-form-field>
+    }
+    <mat-checkbox class="example-margin" formControlName="remove">Remove Shape</mat-checkbox>
+  </div>
   <canvas #canvas></canvas>
 </div>
