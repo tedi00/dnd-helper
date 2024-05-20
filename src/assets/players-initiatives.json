@@ -1,8 +1,8 @@
 [
-  {"name": "Errhin", "initiative": 1, "hp": 16},
-  {"name": "Maximus", "initiative": 2, "hp": 29},
-  {"name": "Lucious", "initiative": 4, "hp": 24},
-  {"name": "Maria", "initiative": 2, "hp": 27},
-  {"name": "Krilin", "initiative": 3, "hp": 24},
-  {"name": "Venule", "initiative": -1, "hp": 22}
+  {"name": "Player A", "initiative": 1, "hp": 16},
+  {"name": "Player B", "initiative": 2, "hp": 29},
+  {"name": "Player C", "initiative": 4, "hp": 24},
+  {"name": "Player D", "initiative": 2, "hp": 27},
+  {"name": "Player E", "initiative": 3, "hp": 24},
+  {"name": "Player F", "initiative": -1, "hp": 22}
 ]
